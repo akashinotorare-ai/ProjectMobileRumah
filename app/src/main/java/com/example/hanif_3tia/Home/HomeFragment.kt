@@ -14,6 +14,7 @@ import com.example.hanif_3tia.DetailActivity
 import com.example.hanif_3tia.LoginActivity
 import com.example.hanif_3tia.R
 import com.example.hanif_3tia.databinding.FragmentHomeBinding
+import com.google.android.material.chip.Chip
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
@@ -60,9 +61,16 @@ class HomeFragment : Fragment() {
 
         }
 
-        binding.btnCoursePengenalanPython.setOnClickListener {
+        binding.btnCoursePython.setOnClickListener {
             val intent = Intent(requireContext(), DetailActivity::class.java)
             startActivity(intent)
+        }
+        binding.chipGroupFilter.setOnCheckedStateChangeListener { group, checkedIds ->
+            val selectedChipId = checkedIds.firstOrNull() // ambil id chip yang dipilih
+            if (selectedChipId != null) {
+                val chip = group.findViewById<Chip>(selectedChipId)
+                Toast.makeText(requireContext(), "Filter: ${chip.text}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }

@@ -1,0 +1,18 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="360dp"
+    android:height="140dp"
+    android:viewportWidth="360"
+    android:viewportHeight="140">
+
+    <!-- Lapisan Belakang: Opasitas 20% (Aksen bayangan sangat halus) -->
+    <path
+        android:fillColor="#FFD600"
+        android:fillAlpha="0.20"
+        android:pathData="M0,0 L360,0 L360,105 C290,135 230,80 180,110 C130,135 70,80 0,115 Z" />
+
+    <!-- Lapisan Depan: Opasitas 85% (Semi-solid lembut) -->
+    <path
+        android:fillColor="#FFD600"
+        android:fillAlpha="0.85"
+        android:pathData="M0,0 L360,0 L360,85 C300,120 240,70 180,95 C120,120 60,70 0,100 Z" />
+</vector>

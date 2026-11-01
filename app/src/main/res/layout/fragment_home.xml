@@ -8,15 +8,25 @@
     tools:context=".MainActivity"
     android:background="@color/White">
 
+    <View
+        android:id="@+id/background_header"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:background="@drawable/bg_header_wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-
-        android:background="@color/Black_Solid"
-        app:titleTextColor="@color/White"
+        android:background="#FFD600"
+        app:elevation="0dp"
+        app:title="Home"
+        app:titleTextColor="@color/Black_Solid"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,7 +109,7 @@
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cvKategori"
         android:layout_width="370dp"
-        android:layout_height="50dp"
+        android:layout_height="70dp"
         android:layout_marginTop="8dp"
         app:cardElevation="3dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,102 +122,197 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp">
 
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.36"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipProgramming"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Programming" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipMultimedia"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Multimedia" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipJaringan"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jaringan" />
+            </com.google.android.material.chip.ChipGroup>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
+
+    <!-- GRID LAYOUT 2 KOLOM (MODUL) -->
 
     <TextView
         android:id="@+id/tvModul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/spacegrotesk"
         android:text="Rekomendasi Modul"
         android:textColor="@color/Black_Solid"
-        android:fontFamily="@font/spacegrotesk"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cvKategori" />
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvModul"
-        android:layout_width="370dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="8dp"
-        app:cardElevation="3dp"
-        app:cardBackgroundColor="@color/Surface"
+    <GridLayout
+        android:id="@+id/gridModul"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:columnCount="2"
+        android:useDefaultMargins="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvModul">
+        app:layout_constraintTop_toBottomOf="@+id/tvModul"
+        app:layout_constraintVertical_bias="0.0">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp">
+        <!-- MODUL 1: Python -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvModulPython"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="6dp"
+            app:cardBackgroundColor="@color/Surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
 
-            <ImageView
-                android:id="@+id/imgModulCoding"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.533"
-                app:srcCompat="@drawable/logo_light" />
-
-            <TextView
-                android:id="@+id/tvCodinglabel"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:text="Programming"
-                android:fontFamily="@font/plus_jakarta_sans_regular"
-                android:textColor="#059568"
-                android:textSize="13sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.01"
-                app:layout_constraintStart_toEndOf="@+id/imgModulCoding"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:orientation="vertical"
+                android:padding="12dp">
 
-            <TextView
-                android:id="@+id/tvCodingisi"
-                android:layout_width="wrap_content"
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/logo_light" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Programming"
+                    android:textColor="@color/Gray"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:maxLines="2"
+                    android:text="Pengenalan Python"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnCoursePython"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/Yellow"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Ambil"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="10dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvModulKotlin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_margin="6dp"
+            app:cardBackgroundColor="@color/Surface"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/spacegrotesk"
-                android:text="Pengenalan Python"
-                android:textColor="@color/Black_Solid"
-                android:textSize="20sp"
-                android:textStyle="bold
-"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnCoursePengenalanPython"
-                app:layout_constraintHorizontal_bias="0.071"
-                app:layout_constraintStart_toEndOf="@+id/imgModulCoding"
-                app:layout_constraintTop_toBottomOf="@+id/tvCodinglabel"
-                app:layout_constraintVertical_bias="0.0" />
+                android:orientation="vertical"
+                android:padding="12dp">
 
-            <Button
-                android:id="@+id/btnCoursePengenalanPython"
-                android:layout_width="75dp"
-                android:layout_height="45dp"
-                android:layout_marginEnd="4dp"
-                android:backgroundTint="@color/Yellow"
-                android:text="Ambil"
-                android:textColor="@color/Black_Solid"
-                android:textStyle="bold"
-                android:fontFamily="@font/plus_jakarta_sans_regular"
-                android:textSize="9sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center_horizontal"
+                    app:srcCompat="@drawable/logo_light" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Programming"
+                    android:textColor="@color/Gray"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:maxLines="2"
+                    android:text="Dasar Kotlin"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnCourseKotlin"
+                    android:layout_width="match_parent"
+                    android:layout_height="38dp"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="@color/Yellow"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Ambil"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="10dp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

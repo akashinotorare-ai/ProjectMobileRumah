@@ -1,13 +1,21 @@
 package com.example.hanif_3tia.Module
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.MenuProvider
+import androidx.lifecycle.Lifecycle
+import com.example.hanif_3tia.Module.Tutorial.TutorialModuleActivity
 import com.example.hanif_3tia.R
 import com.example.hanif_3tia.databinding.FragmentModuleBinding
+import kotlin.jvm.java
 
 class ModuleFragment : Fragment() {
         private var _binding: FragmentModuleBinding?=null
@@ -37,6 +45,28 @@ class ModuleFragment : Fragment() {
         override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
             (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
             (requireActivity() as AppCompatActivity).supportActionBar?.title = "Module"
+
+            requireActivity().addMenuProvider(object : MenuProvider {
+
+                override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                    menuInflater.inflate(R.menu.module_toolbar_menu, menu)
+                }
+
+                override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                    return when (menuItem.itemId) {
+                        R.id.action_tutorial -> {
+                            startActivity(
+                                Intent(
+                                    requireContext(),
+                                    TutorialModuleActivity::class.java
+                                )
+                            )
+                            true
+                        }
+                        else -> false
+                    }
+                }
+            }, viewLifecycleOwner, Lifecycle.State.RESUMED)
 
             val adapter = ModuleAdapter(requireContext(), messageList)
             binding.listModuleItem.adapter = adapter

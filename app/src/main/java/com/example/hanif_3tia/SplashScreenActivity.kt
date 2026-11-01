@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.hanif_3tia.Module.Tutorial.TutorialModuleActivity
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -32,7 +33,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             delay(2000)
-            val intent = Intent(this@SplashScreenActivity, LoginActivity::class.java)
+            val intent = Intent(this@SplashScreenActivity, TutorialScreenActivity::class.java)
             startActivity(intent)
             finish()
         }
