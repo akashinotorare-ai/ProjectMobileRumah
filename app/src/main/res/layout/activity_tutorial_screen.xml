@@ -5,31 +5,74 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Module.Tutorial.TutorialModuleActivity">
+    android:background="@color/White"
+    tools:context=".TutorialScreenActivity">
 
-
+    <!-- ViewPager2 untuk 3 Halaman Onboarding (Modul 9 Tahap 5) -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/tutorialModuleViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/dot_indicator"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Penanda Titik Halaman (Modul 9 Tahap 6) -->
     <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
         android:id="@+id/dot_indicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        app:dotsColor="@color/Gray"
-        app:dotsCornerRadius="10dp"
-        app:dotsSpacing="5dp"
+        android:layout_marginBottom="24dp"
+        app:dotsColor="@color/Gray_Light"
+        app:dotsCornerRadius="8dp"
+        app:dotsSize="10dp"
+        app:dotsSpacing="6dp"
         app:progressMode="true"
         app:selectedDotColor="@color/Black_Solid"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnMulaiSekarang"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Tombol 1: MULAI SEKARANG (Grand Design Bangbo) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnMulaiSekarang"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/Yellow"
+        android:fontFamily="@font/spacegrotesk"
+        android:text="MULAI SEKARANG"
+        android:textColor="@color/Black_Solid"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="27dp"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSudahPunyaAkun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Tombol 2: SAYA SUDAH PUNYA AKUN (Grand Design Bangbo) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSudahPunyaAkun"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/White"
+        android:fontFamily="@font/spacegrotesk"
+        android:text="SAYA SUDAH PUNYA AKUN"
+        android:textColor="@color/Black_Solid"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="27dp"
+        app:strokeColor="@color/Gray_Light"
+        app:strokeWidth="1.5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

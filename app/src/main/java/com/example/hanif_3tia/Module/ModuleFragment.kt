@@ -15,60 +15,64 @@ import androidx.lifecycle.Lifecycle
 import com.example.hanif_3tia.Module.Tutorial.TutorialModuleActivity
 import com.example.hanif_3tia.R
 import com.example.hanif_3tia.databinding.FragmentModuleBinding
-import kotlin.jvm.java
 
 class ModuleFragment : Fragment() {
-        private var _binding: FragmentModuleBinding?=null
-        private val binding get() = _binding!!
+    private var _binding: FragmentModuleBinding? = null
+    private val binding get() = _binding!!
 
-        private val messageList = listOf(
-            ModuleModel("Alya", "Halo! Apa kabar?", "https://i.pravatar.cc/150?img=1"),
-            ModuleModel("Budi", "Sudah makan?", "https://i.pravatar.cc/150?img=2"),
-            ModuleModel("Citra", "Jangan lupa tugasnya ya!", "https://i.pravatar.cc/150?img=3"),
-            ModuleModel("Dika", "Besok kita rapat jam 9", "https://i.pravatar.cc/150?img=4"),
-            ModuleModel("Eka", "Nice job kemarin!", "https://i.pravatar.cc/150?img=5"),
-            ModuleModel("Fajar", "Lagi ngapain?", "https://i.pravatar.cc/150?img=6"),
-            ModuleModel("Gita", "Boleh minta tolong?", "https://i.pravatar.cc/150?img=7"),
-            ModuleModel("Hana", "Lihat email ya", "https://i.pravatar.cc/150?img=8"),
-            ModuleModel("Irfan", "Oke noted", "https://i.pravatar.cc/150?img=9"),
-            ModuleModel("Joko", "Sampai jumpa besok", "https://i.pravatar.cc/150?img=10")
-        )
+    // Modul 7 Tahap 4: Data model kosakata Bahasa Inggris & Jepang
+    private val vocabList = listOf(
+        ModuleModel("Hello (こんにちは)", "Sapaan umum sehari-hari (Konnichiwa)", "https://avatar.iran.liara.run/public/1"),
+        ModuleModel("Thank You (ありがとう)", "Ungkapan terima kasih (Arigatou)", "https://avatar.iran.liara.run/public/2"),
+        ModuleModel("Good Morning (おはよう)", "Selamat pagi (Ohayou)", "https://avatar.iran.liara.run/public/3"),
+        ModuleModel("Friend (ともだち)", "Teman atau sahabat (Tomodachi)", "https://avatar.iran.liara.run/public/4"),
+        ModuleModel("Delicious (おいしい)", "Makanan lezat / enak (Oishii)", "https://avatar.iran.liara.run/public/5"),
+        ModuleModel("Study (べんきょう)", "Belajar atau menuntut ilmu (Benkyou)", "https://avatar.iran.liara.run/public/6"),
+        ModuleModel("Teacher (せんせい)", "Guru atau mentor (Sensei)", "https://avatar.iran.liara.run/public/7"),
+        ModuleModel("Water (みず)", "Air minum (Mizu)", "https://avatar.iran.liara.run/public/8"),
+        ModuleModel("School (がっこう)", "Sekolah atau kampus (Gakkou)", "https://avatar.iran.liara.run/public/9"),
+        ModuleModel("Goodbye (さようなら)", "Selamat tinggal (Sayounara)", "https://avatar.iran.liara.run/public/10")
+    )
 
-        override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
-        ): View? {
-            _binding = FragmentModuleBinding.inflate(inflater, container, false)
-            return binding.root
-        }
-
-        override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-            (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
-            (requireActivity() as AppCompatActivity).supportActionBar?.title = "Module"
-
-            requireActivity().addMenuProvider(object : MenuProvider {
-
-                override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-                    menuInflater.inflate(R.menu.module_toolbar_menu, menu)
-                }
-
-                override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                    return when (menuItem.itemId) {
-                        R.id.action_tutorial -> {
-                            startActivity(
-                                Intent(
-                                    requireContext(),
-                                    TutorialModuleActivity::class.java
-                                )
-                            )
-                            true
-                        }
-                        else -> false
-                    }
-                }
-            }, viewLifecycleOwner, Lifecycle.State.RESUMED)
-
-            val adapter = ModuleAdapter(requireContext(), messageList)
-            binding.listModuleItem.adapter = adapter
-        }
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentModuleBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Modul 5 & 7: Pasang Toolbar pada Fragment
+        (requireActivity() as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = "Kamus & Kosakata"
+
+        // Modul 9 Tahap 5.4: Menu Info Tutorial dengan MenuProvider
+        requireActivity().addMenuProvider(object : MenuProvider {
+            override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
+                menuInflater.inflate(R.menu.module_toolbar_menu, menu)
+            }
+
+            override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
+                return when (menuItem.itemId) {
+                    R.id.action_tutorial -> {
+                        startActivity(Intent(requireContext(), TutorialModuleActivity::class.java))
+                        true
+                    }
+                    else -> false
+                }
+            }
+        }, viewLifecycleOwner, Lifecycle.State.RESUMED)
+
+        // Modul 7 Tahap 4.7: Pasang Custom Adapter ke ListView
+        val adapter = ModuleAdapter(requireContext(), vocabList)
+        binding.listModuleItem.adapter = adapter
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Bottom 3D shadow rim -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/Yellow_Dark" />
+            <size android:width="76dp" android:height="76dp" />
+        </shape>
+    </item>
+    <!-- Top circle -->
+    <item android:bottom="6dp">
+        <shape android:shape="oval">
+            <solid android:color="@color/Yellow" />
+            <size android:width="76dp" android:height="76dp" />
+        </shape>
+    </item>
+</layer-list>

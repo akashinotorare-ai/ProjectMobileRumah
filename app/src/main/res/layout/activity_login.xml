@@ -5,156 +5,281 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:background="@color/White">
+    android:background="@color/White"
+    tools:context=".LoginActivity">
 
-
+    <!-- Header Toolbar dengan Tombol Kembali (Modul 5 Tahap 2) -->
     <ImageView
-        android:id="@+id/LogoAplikasi"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="52dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_btn_surface"
+        android:contentDescription="Kembali"
+        android:padding="8dp"
+        android:src="@drawable/ic_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_light" />
+        app:tint="@color/Black_Solid" />
 
-    <TextView
-        android:id="@+id/NamaAplikasi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/spacegrotesk"
-        android:textColor="@color/Black_Solid"
-        android:textSize="26sp"
-        android:text="Bangbo"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/ivHeaderLogo"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="20dp"
+        android:contentDescription="Mini Logo Bangbo"
+        android:src="@drawable/logo_light"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogoAplikasi" />
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
 
-    <TextView
-        android:id="@+id/TagLineAplikasi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Belajar Lebih Cerdas, Kuasai Masa Depan"
-        android:fontFamily="@font/plus_jakarta_sans_regular"
-        android:textColor="@color/Gray"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/NamaAplikasi" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:layout_width="339dp"
-        android:layout_height="396dp"
-        app:cardBackgroundColor="@color/Surface"
-        app:cardElevation="3dp"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:fillViewport="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TagLineAplikasi"
-        app:layout_constraintVertical_bias="0.182">
+        app:layout_constraintTop_toBottomOf="@+id/btnBack">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="15dp">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="24dp"
+            android:paddingBottom="32dp">
 
             <TextView
-                android:id="@+id/LoginTitle"
+                android:id="@+id/tvLoginTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Login"
-                android:textColor="@color/Black_Solid"
-                android:textSize="20sp"
+                android:layout_marginTop="8dp"
                 android:fontFamily="@font/spacegrotesk"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
+                android:text="Selamat Datang Kembali!"
+                android:textColor="@color/Black_Solid"
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/UsernameLabel"
+                android:id="@+id/tvLoginSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:text="Lanjutkan ekspedisi belajar berbagai bahasa bersama Bangbo."
+                android:textColor="@color/Gray"
+                android:textSize="14sp" />
+
+            <!-- Input Username / Email (Modul 9 Tahap 1) -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="Masukkan Username"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="EMAIL ATAU USERNAME"
                 android:textColor="@color/Gray"
-                android:fontFamily="@font/plus_jakarta_sans_regular"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/LoginTitle" />
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/EdtUsername"
-                android:layout_width="wrap_content"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilUsername"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:ems="15"
-                android:inputType="textEmailAddress"
-                android:textColor="@color/Black_Solid"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/UsernameLabel" />
+                android:layout_marginTop="6dp"
+                app:boxCornerRadiusBottomEnd="14dp"
+                app:boxCornerRadiusBottomStart="14dp"
+                app:boxCornerRadiusTopEnd="14dp"
+                app:boxCornerRadiusTopStart="14dp"
+                app:boxStrokeColor="@color/Yellow"
+                app:hintEnabled="false">
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:hint="arip@gmail.com"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Input Password (Modul 9 Tahap 1.3) -->
             <TextView
-                android:id="@+id/PasswordLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
-                android:text="Masukkan Password"
-                android:textColor="@color/Gray"
-                android:fontFamily="@font/plus_jakarta_sans_regular"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/EdtUsername" />
-
-            <EditText
-                android:id="@+id/EdtPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:ems="15"
-                android:inputType="textPassword"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="KATA SANDI"
                 android:textColor="@color/Gray"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/PasswordLabel" />
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
-            <Button
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPassword"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:boxCornerRadiusBottomEnd="14dp"
+                app:boxCornerRadiusBottomStart="14dp"
+                app:boxCornerRadiusTopEnd="14dp"
+                app:boxCornerRadiusTopStart="14dp"
+                app:boxStrokeColor="@color/Yellow"
+                app:endIconMode="password_toggle"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:hint="••••••••"
+                    android:inputType="textPassword"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Row Ingat Saya & Lupa Sandi -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <CheckBox
+                    android:id="@+id/cbRememberMe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:buttonTint="@color/Yellow"
+                    android:checked="true"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Ingat saya di perangkat ini"
+                    android:textColor="@color/Gray"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/tvForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Lupa sandi?"
+                    android:textColor="@color/Gray"
+                    android:textSize="12sp" />
+            </RelativeLayout>
+
+            <!-- Tombol Masuk ke Bangbo (Modul 9 MaterialButton) -->
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLogin"
-                android:layout_width="270dp"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
                 android:layout_height="54dp"
+                android:layout_marginTop="20dp"
                 android:backgroundTint="@color/Yellow"
-                android:fontFamily="@font/plus_jakarta_sans_regular"
-                android:text="Login"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="MASUK KE BANGBO"
                 android:textColor="@color/Black_Solid"
                 android:textSize="15sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.41"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/EdtPassword"
-                app:layout_constraintVertical_bias="0.68" />
+                app:cornerRadius="27dp"
+                app:elevation="0dp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <!-- Divider Sosial Login -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/Gray_Light" />
 
-    </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="12dp"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:text="ATAU MASUK DENGAN"
+                    android:textColor="@color/Gray"
+                    android:textSize="11sp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1"
+                    android:background="@color/Gray_Light" />
+            </LinearLayout>
+
+            <!-- Tombol Google & Apple -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnGoogleLogin"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/Surface"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Google"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="13sp"
+                    app:cornerRadius="24dp"
+                    app:icon="@drawable/ic_google"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp"
+                    app:iconTint="@null"
+                    app:strokeColor="@color/Gray_Light"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAppleLogin"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:backgroundTint="@color/Surface"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Apple"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="13sp"
+                    app:cornerRadius="24dp"
+                    app:icon="@drawable/ic_apple"
+                    app:iconGravity="textStart"
+                    app:iconPadding="8dp"
+                    app:iconTint="@null"
+                    app:strokeColor="@color/Gray_Light"
+                    app:strokeWidth="1dp" />
+            </LinearLayout>
+
+            <!-- Link ke Register -->
+            <TextView
+                android:id="@+id/tvToRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:text="Belum punya akun? Daftar sekarang"
+                android:textColor="@color/Black_Solid"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

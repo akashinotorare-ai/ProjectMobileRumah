@@ -1,14 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/White"
     tools:context=".More.MoreFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <!-- Toolbar Profil -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/White"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Profil Pengguna"
+        app:titleTextColor="@color/Black_Solid" />
 
-</FrameLayout>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="36dp">
+
+            <!-- Card Profil Pengguna -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_rounded_card"
+                android:padding="20dp">
+
+                <ImageView
+                    android:id="@+id/ivProfileAvatar"
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:contentDescription="Avatar Pengguna"
+                    android:src="@drawable/logo_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!-- Modul 6 Latihan 5.1 & Modul 7 Latihan 5.1: Sapaan Pengguna -->
+                <TextView
+                    android:id="@+id/tvWelcomeUser"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:text="Halo, Pengguna!"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfileAvatar"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvUserEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="arip@gmail.com"
+                    android:textColor="@color/Gray"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfileAvatar"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWelcomeUser" />
+
+                <TextView
+                    android:id="@+id/tvActiveLang"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@drawable/bg_chip_status"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:text="Fokus: English"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfileAvatar"
+                    app:layout_constraintTop_toBottomOf="@+id/tvUserEmail" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Menu Opsi Pengaturan -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Pengaturan &amp; Layanan"
+                android:textColor="@color/Black_Solid"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <!-- Modul 5 Tahap 5: Buka Web PCR / Panduan lewat WebView -->
+            <RelativeLayout
+                android:id="@+id/btnOpenWebView"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_rounded_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="🌐  Buka Web Kampus PCR (WebView Modul 5)"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="Buka"
+                    android:rotation="180"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/Gray" />
+            </RelativeLayout>
+
+            <!-- Card Informasi Modul Praktikum -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_rounded_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:text="Informasi Praktikum"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Aplikasi: Bangbo (Bahasa Inggris &amp; Jepang)\nProgrammer: Hanif (3 TIA)\nModul: Pertemuan 5, 6, 7, 9 (Mobile Programming)"
+                    android:textColor="@color/Gray"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- Tombol Keluar Akun / Logout (Modul 6 Tahap 1.3 & Modul 7 Tahap 2.2) -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnLogout"
+                style="@style/Widget.MaterialComponents.Button"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginTop="28dp"
+                android:backgroundTint="#FEE2E2"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="KELUAR DARI AKUN (LOGOUT)"
+                android:textColor="@color/Red_Error"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:cornerRadius="27dp"
+                app:elevation="0dp"
+                app:strokeColor="@color/Red_Error"
+                app:strokeWidth="1dp" />
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context=".Quiz.QuizFragment">
+
+    <!-- Header Toolbar (Modul 5 Tahap 2) -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/White"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Latihan &amp; Kuis"
+        app:titleTextColor="@color/Black_Solid" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingBottom="36dp">
+
+            <!-- Card Banner Kuis Harian Bangbo -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_card_selector"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/ivQuizHero"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:contentDescription="Maskot Bangbo Kuis"
+                    android:src="@drawable/logo_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvHeroTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:text="Kuis Harianmu Siap!"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivQuizHero"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvHeroSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Latih daya ingat dan kumpulkan hingga +30 XP hari ini."
+                    android:textColor="@color/Gray"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivQuizHero"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHeroTitle" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Section 1: Filter Kategori (Modul 9 Tahap 2 ChipGroup) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Pilih Kategori Kuis"
+                android:textColor="@color/Black_Solid"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipAll"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Semua" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipGrammar"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tata Bahasa" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipVocab"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kosakata" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipListening"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Listening" />
+            </com.google.android.material.chip.ChipGroup>
+
+            <!-- Section 2: Modul Latihan 6 Petak (Modul 9 Tahap 4 GridLayout) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Modul Latihan Aktif"
+                android:textColor="@color/Black_Solid"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:text="Ketuk salah satu modul petak untuk memulai latihan."
+                android:textColor="@color/Gray"
+                android:textSize="12sp" />
+
+            <!-- Menu Kuis Petak dengan GridLayout 3 Kolom x 2 Baris (Modul 9 Tahap 4) -->
+            <androidx.gridlayout.widget.GridLayout
+                android:id="@+id/gridQuizMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:columnCount="3"
+                app:rowCount="2"
+                app:useDefaultMargins="true">
+
+                <!-- Baris 1: Kolom 0 (Grammar 1) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuiz1"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="84dp"
+                    android:backgroundTint="@color/White"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="4dp"
+                    android:text="📖\nGrammar 1\n+10 XP"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp"
+                    app:layout_column="0"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    app:layout_row="0"
+                    app:strokeColor="@color/Gray_Light"
+                    app:strokeWidth="1.5dp" />
+
+                <!-- Baris 1: Kolom 1 (Kosakata 1) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuiz2"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="84dp"
+                    android:backgroundTint="@color/White"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="4dp"
+                    android:text="🔤\nKosakata 1\n+10 XP"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp"
+                    app:layout_column="1"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    app:layout_row="0"
+                    app:strokeColor="@color/Gray_Light"
+                    app:strokeWidth="1.5dp" />
+
+                <!-- Baris 1: Kolom 2 (Tulis Kana) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuiz3"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="84dp"
+                    android:backgroundTint="@color/White"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="4dp"
+                    android:text="✍️\nTulis Kana\n+15 XP"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp"
+                    app:layout_column="2"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    app:layout_row="0"
+                    app:strokeColor="@color/Gray_Light"
+                    app:strokeWidth="1.5dp" />
+
+                <!-- Baris 2: Kolom 0 (Listening) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuiz4"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="84dp"
+                    android:backgroundTint="@color/White"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="4dp"
+                    android:text="🎧\nListening\n+15 XP"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp"
+                    app:layout_column="0"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    app:layout_row="1"
+                    app:strokeColor="@color/Gray_Light"
+                    app:strokeWidth="1.5dp" />
+
+                <!-- Baris 2: Kolom 1 (Percakapan) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuiz5"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="84dp"
+                    android:backgroundTint="@color/White"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="4dp"
+                    android:text="💬\nPercakapan\n+20 XP"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp"
+                    app:layout_column="1"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    app:layout_row="1"
+                    app:strokeColor="@color/Gray_Light"
+                    app:strokeWidth="1.5dp" />
+
+                <!-- Baris 2: Kolom 2 (Review Akhir) -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnQuiz6"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp"
+                    android:layout_height="84dp"
+                    android:backgroundTint="@color/White"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:gravity="center"
+                    android:insetTop="0dp"
+                    android:insetBottom="0dp"
+                    android:padding="4dp"
+                    android:text="🏆\nReview\n+30 XP"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="14dp"
+                    app:layout_column="2"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal"
+                    app:layout_row="1"
+                    app:strokeColor="@color/Gray_Light"
+                    app:strokeWidth="1.5dp" />
+            </androidx.gridlayout.widget.GridLayout>
+
+            <!-- Card Banner Info Tantangan Mingguan -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@drawable/bg_rounded_card"
+                android:padding="16dp">
+
+                <ImageView
+                    android:id="@+id/ivQuizMascot"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:contentDescription="Maskot Bangbo"
+                    android:src="@drawable/logo_light"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvBannerTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:text="Tantangan Mingguan Bangbo"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivQuizMascot"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvBannerSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Selesaikan 3 kuis hari ini untuk memenangkan lencana eksklusif!"
+                    android:textColor="@color/Gray"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivQuizMascot"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBannerTitle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- Card Info Riwayat Kuis Terakhir -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_rounded_card"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvHistoryTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:text="Riwayat Latihan Terakhir"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvHistoryScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_chip_status"
+                    android:fontFamily="@font/jetbrainsmono"
+                    android:text="Skor: 100/100"
+                    android:textColor="@color/Green_Success"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Kosakata Dasar 1 • 10 Soal terjawab benar • +10 XP"
+                    android:textColor="@color/Gray"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHistoryTitle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context=".DailyGoalActivity">
+
+    <!-- Top Bar dengan Tombol Back & Step Indicator -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_btn_surface"
+        android:contentDescription="Kembali"
+        android:padding="8dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/Black_Solid" />
+
+    <!-- Step Progress Bar (Step 2 of 2 - 100%) -->
+    <ProgressBar
+        android:id="@+id/stepProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="120dp"
+        android:layout_height="8dp"
+        android:layout_marginEnd="20dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="@color/Yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/spacegrotesk"
+        android:text="Keren! Sekarang tentukan target harianmu."
+        android:textColor="@color/Black_Solid"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/plus_jakarta_sans_regular"
+        android:text="Komitmen harian membantumu membangun kebiasaan tanpa stres."
+        android:textColor="@color/Gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <!-- List 4 Opsi Target Harian (Modul 9 Custom State & Layout) -->
+    <LinearLayout
+        android:id="@+id/layoutGoals"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubtitle">
+
+        <!-- Opsi 1: Santai (Casual) -->
+        <RelativeLayout
+            android:id="@+id/goalCasual"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_card_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Santai (Casual)"
+                android:textColor="@color/Black_Solid"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/jetbrainsmono"
+                android:text="5 mnt / hari"
+                android:textColor="@color/Gray"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <!-- Opsi 2: Biasa (Regular) -->
+        <RelativeLayout
+            android:id="@+id/goalRegular"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_card_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Biasa (Regular)"
+                android:textColor="@color/Black_Solid"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/jetbrainsmono"
+                android:text="10 mnt / hari"
+                android:textColor="@color/Gray"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <!-- Opsi 3: Serius (Serious) - Default Checked -->
+        <RelativeLayout
+            android:id="@+id/goalSerious"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_card_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Serius (Serious)"
+                android:textColor="@color/Black_Solid"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/jetbrainsmono"
+                android:text="15 mnt / hari"
+                android:textColor="@color/Gray"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <!-- Opsi 4: Intensif (Intense) -->
+        <RelativeLayout
+            android:id="@+id/goalIntense"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/bg_card_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingHorizontal="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Intensif (Intense)"
+                android:textColor="@color/Black_Solid"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/jetbrainsmono"
+                android:text="20 mnt / hari"
+                android:textColor="@color/Gray"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- Info Note -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutGoals">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:contentDescription="Info"
+            android:src="@drawable/ic_check"
+            app:tint="@color/Gray" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/plus_jakarta_sans_regular"
+            android:text="Berlaku Untuk Semua Bahasa (Inggris &amp; Jepang)"
+            android:textColor="@color/Gray"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!-- Tombol LANJUTKAN -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLanjutkan"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/Yellow"
+        android:fontFamily="@font/spacegrotesk"
+        android:text="LANJUTKAN"
+        android:textColor="@color/Black_Solid"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="27dp"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
-        android:icon="@drawable/home"
-        android:title="Home" />
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_nav_home"
+        android:title="Beranda" />
     <item
-        android:id="@+id/module"
-        android:icon="@drawable/module"
-        android:title="Module" />
+        android:id="@+id/nav_quiz"
+        android:icon="@drawable/ic_nav_quiz"
+        android:title="Kuis" />
     <item
-        android:id="@+id/more"
-        android:icon="@drawable/more"
-        android:title="More" />
+        android:id="@+id/nav_dictionary"
+        android:icon="@drawable/ic_nav_dict"
+        android:title="Kamus" />
+    <item
+        android:id="@+id/nav_target"
+        android:icon="@drawable/ic_nav_target"
+        android:title="Target" />
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_nav_profile"
+        android:title="Profil" />
 </menu>

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/White"
+    tools:context=".ChooseLanguageActivity">
+
+    <!-- Top Bar dengan Tombol Back & Step Indicator -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_btn_surface"
+        android:contentDescription="Kembali"
+        android:padding="8dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/Black_Solid" />
+
+    <!-- Step Progress Bar (Step 1 of 2) -->
+    <ProgressBar
+        android:id="@+id/stepProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="120dp"
+        android:layout_height="8dp"
+        android:layout_marginEnd="20dp"
+        android:max="100"
+        android:progress="50"
+        android:progressTint="@color/Yellow"
+        app:layout_constraintBottom_toBottomOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="28dp"
+        android:fontFamily="@font/spacegrotesk"
+        android:text="Mau belajar bahasa apa?"
+        android:textColor="@color/Black_Solid"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack" />
+
+    <TextView
+        android:id="@+id/tvSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/plus_jakarta_sans_regular"
+        android:text="Pilih fokus utamamu untuk memulai ekspedisi belajar."
+        android:textColor="@color/Gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <!-- Container Dua Bahasa (Card English & Japanese) -->
+    <LinearLayout
+        android:id="@+id/cardContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSubtitle">
+
+        <!-- Card English -->
+        <LinearLayout
+            android:id="@+id/cardEnglish"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Circle Icon Flag -->
+            <TextView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_chip_status"
+                android:gravity="center"
+                android:text="🇬🇧"
+                android:textSize="28sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="English"
+                android:textColor="@color/Black_Solid"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:text="Bahasa Inggris"
+                android:textColor="@color/Gray"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:gravity="center"
+                android:text="Karir, TOEFL, &amp; Percakapan"
+                android:textColor="@color/Gray"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/badgeEnglish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_btn_yellow"
+                android:fontFamily="@font/spacegrotesk"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:text="PILIHAN"
+                android:textColor="@color/Black_Solid"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Card Japanese -->
+        <LinearLayout
+            android:id="@+id/cardJapanese"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_card_selector"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:background="@drawable/bg_chip_status"
+                android:gravity="center"
+                android:text="🇯🇵"
+                android:textSize="28sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Japanese"
+                android:textColor="@color/Black_Solid"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:text="日本語 (Nihongo)"
+                android:textColor="@color/Gray"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:gravity="center"
+                android:text="Tulis Kanji, Kana, &amp; SRS"
+                android:textColor="@color/Gray"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/badgeJapanese"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_btn_surface"
+                android:fontFamily="@font/spacegrotesk"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:text="PILIH INI"
+                android:textColor="@color/Gray"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Info Box: Bisa Ganti Kapan Saja -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_rounded_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardContainer">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:contentDescription="Info"
+            android:src="@drawable/ic_check"
+            app:tint="@color/Yellow" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:text="Bisa Ganti atau Belajar 2 Bahasa Sekaligus"
+                android:textColor="@color/Black_Solid"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:fontFamily="@font/plus_jakarta_sans_regular"
+                android:text="Kamu bisa berganti bahasa kapan saja di profilmu."
+                android:textColor="@color/Gray"
+                android:textSize="11sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Tombol LANJUTKAN -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnLanjutkan"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
+        android:layout_height="54dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/Yellow"
+        android:fontFamily="@font/spacegrotesk"
+        android:text="LANJUTKAN"
+        android:textColor="@color/Black_Solid"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:cornerRadius="27dp"
+        app:elevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

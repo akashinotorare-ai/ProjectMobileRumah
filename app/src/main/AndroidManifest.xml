@@ -13,38 +13,69 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hanif_3TIA">
+        
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
-            android:name=".BaseActivity"
+            android:name=".TutorialScreenActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".DetailActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
+            
         <activity
             android:name=".LoginActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+            
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+            
+        <activity
+            android:name=".ChooseLanguageActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+            
+        <activity
+            android:name=".DailyGoalActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+            
+        <activity
+            android:name=".BaseActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+            
+        <activity
+            android:name=".Quiz.QuizSessionActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+            
+        <activity
+            android:name=".WebViewActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+            
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+            
         <activity
             android:name=".Module.ModuleActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+            
         <activity
             android:name=".Module.Tutorial.TutorialModuleActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".TutorialScreenActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

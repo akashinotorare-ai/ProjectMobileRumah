@@ -35,8 +35,15 @@ android {
 }
 
 dependencies {
+    // Modul 7 Tahap 4.1: Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
+    // Modul 9 Tahap 0.2: DotsIndicator
     implementation("com.tbuonomo:dotsindicator:5.1.0")
+    // Modul 9 Tahap 0.2: GridLayout
+    implementation("androidx.gridlayout:gridlayout:1.0.0")
+    // Modul 9 Tahap 0.2: ViewPager2
+    implementation("androidx.viewpager2:viewpager2:1.1.0")
+
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
@@ -47,5 +54,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
-
 }

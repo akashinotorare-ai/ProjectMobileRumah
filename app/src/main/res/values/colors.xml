@@ -1,10 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="White">#FFFFFf</color>
+    <!-- Palet Warna Utama Bangbo -->
+    <color name="White">#FFFFFF</color>
     <color name="Surface">#F6F8FA</color>
     <color name="Yellow">#FFE600</color>
+    <color name="Yellow_Hover">#E5CF00</color>
+    <color name="Yellow_Dark">#CCA800</color>
     <color name="Black_Solid">#0F1115</color>
     <color name="Gray">#6B7280</color>
+    <color name="Gray_Light">#E5E7EB</color>
+    <color name="Gray_Border">#D1D5DB</color>
+    <color name="Green_Success">#58CC02</color>
+    <color name="Green_Dark">#46A302</color>
+    <color name="Red_Error">#EA2B2B</color>
+
+    <!-- Warna DotsIndicator & Tutorial -->
+    <color name="dot_selected">#0F1115</color>
+    <color name="dot_unselected">#D1D5DB</color>
+    <color name="tutorial_blue">#64B5F6</color>
+    <color name="tutorial_green">#AED581</color>
+    <color name="tutorial_teal">#4DB6AC</color>
+    <color name="abu_gelap">#5F6368</color>
 
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>

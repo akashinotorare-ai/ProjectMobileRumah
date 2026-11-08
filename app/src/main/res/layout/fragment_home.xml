@@ -2,317 +2,453 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/White">
+    android:background="@color/White"
+    tools:context=".Home.HomeFragment">
 
-    <View
-        android:id="@+id/background_header"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:background="@drawable/bg_header_wave"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <!-- Top Status Bar: Bab, Streak, XP (Grand Design Bangbo) -->
+    <LinearLayout
+        android:id="@+id/topStatusBar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="#FFD600"
-        app:elevation="0dp"
-        app:title="Home"
-        app:titleTextColor="@color/Black_Solid"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvSapaan"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/plus_jakarta_sans_regular"
-        android:text="Halo"
-        android:textColor="@color/Gray"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogOut"
-        app:layout_constraintHorizontal_bias="0.143"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-    <TextView
-        android:id="@+id/tvUsername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:fontFamily="@font/spacegrotesk"
-        android:text="User"
-        android:textColor="@color/Black_Solid"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogOut"
-        app:layout_constraintHorizontal_bias="0.152"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSapaan" />
-
-    <Button
-        android:id="@+id/btnLogOut"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="20dp"
-        android:backgroundTint="@color/Black_Solid"
-        android:fontFamily="@font/plus_jakarta_sans_regular"
-        android:text="LogOut"
-        android:textStyle="bold"
+        android:background="@color/White"
+        android:elevation="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvBanner"
-        android:layout_width="370dp"
-        android:layout_height="170dp"
-        android:layout_marginTop="36dp"
-        app:cardElevation="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogOut">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="30dp">
+        <!-- Chip Bab -->
+        <TextView
+            android:id="@+id/chipBab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chip_status"
+            android:fontFamily="@font/spacegrotesk"
+            android:text="BAB 1"
+            android:textColor="@color/Black_Solid"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
 
-    <TextView
-        android:id="@+id/tvKategori"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Kategori"
-        android:textColor="@color/Black_Solid"
-        android:fontFamily="@font/spacegrotesk"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvBanner" />
+        <!-- Chip Streak Api -->
+        <LinearLayout
+            android:id="@+id/chipStreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_chip_status"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cvKategori"
-        android:layout_width="370dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="8dp"
-        app:cardElevation="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.39"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvKategori">
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:contentDescription="Streak"
+                android:src="@drawable/ic_fire" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="10dp">
-
-            <com.google.android.material.chip.ChipGroup
-                android:id="@+id/chipGroupFilter"
+            <TextView
+                android:id="@+id/tvStreak"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/jetbrainsmono"
+                android:text="14 HARI"
+                android:textColor="#FF6D00"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Chip XP Kilat -->
+        <LinearLayout
+            android:id="@+id/chipXp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chip_status"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:contentDescription="XP"
+                android:src="@drawable/ic_xp" />
+
+            <TextView
+                android:id="@+id/tvXp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/jetbrainsmono"
+                android:text="1,420 XP"
+                android:textColor="#0091EA"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Scrollable Content: Target Harian Card & Jalur Belajar Berkelok (Modul 5 NestedScrollView) -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollViewPath"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:clipToPadding="false"
+        android:fillViewport="true"
+        android:paddingBottom="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/topStatusBar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="16dp">
+
+            <!-- Card Target Harian -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cardTargetHarian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_rounded_card"
+                android:padding="16dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivTargetIcon"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_chip_status"
+                    android:contentDescription="Target"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_nav_target"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/Black_Solid" />
+
+                <TextView
+                    android:id="@+id/tvTargetTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:text="Target Harian: 30 XP"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/tvTargetProgress"
+                    app:layout_constraintStart_toEndOf="@+id/ivTargetIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTargetSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Selesaikan 1 sesi lagi untuk capai streak"
+                    android:textColor="@color/Gray"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvTargetProgress"
+                    app:layout_constraintStart_toEndOf="@+id/ivTargetIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTargetTitle" />
+
+                <TextView
+                    android:id="@+id/tvTargetProgress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/jetbrainsmono"
+                    android:text="20 / 30 XP"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ProgressBar
+                    android:id="@+id/progressBarTarget"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="12dp"
+                    android:max="30"
+                    android:progress="20"
+                    android:progressTint="@color/Yellow"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivTargetIcon" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- ================= JALUR BELAJAR BERKELOK (S-CURVE) ================= -->
+
+            <!-- NODE 1 (Selesai): Tata Bahasa -->
+            <FrameLayout
+                android:id="@+id/node1"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_node_completed"
+                android:clickable="true"
+                android:focusable="true"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.36"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0"
-                app:singleSelection="true">
+                app:layout_constraintTop_toBottomOf="@+id/cardTargetHarian">
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipProgramming"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="Programming" />
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:contentDescription="Selesai"
+                    android:src="@drawable/ic_check" />
+            </FrameLayout>
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipMultimedia"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Multimedia" />
+            <TextView
+                android:id="@+id/tvNode1Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Tata Bahasa"
+                android:textColor="@color/Black_Solid"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/node1"
+                app:layout_constraintStart_toStartOf="@+id/node1"
+                app:layout_constraintTop_toBottomOf="@+id/node1" />
 
-                <com.google.android.material.chip.Chip
-                    android:id="@+id/chipJaringan"
-                    style="@style/Widget.MaterialComponents.Chip.Filter"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Jaringan" />
-            </com.google.android.material.chip.ChipGroup>
+            <!-- Konektor Node 1 ke Node 2 (Miring ke Kiri) -->
+            <View
+                android:id="@+id/conn1_2"
+                android:layout_width="4dp"
+                android:layout_height="44dp"
+                android:background="@color/Gray_Light"
+                android:rotation="30"
+                app:layout_constraintEnd_toEndOf="@+id/node1"
+                app:layout_constraintStart_toStartOf="@+id/node2"
+                app:layout_constraintTop_toBottomOf="@+id/tvNode1Title" />
+
+            <!-- NODE 2 (Selesai): Kosakata (Geser ke Kiri) -->
+            <FrameLayout
+                android:id="@+id/node2"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_node_completed"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.28"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/conn1_2">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:contentDescription="Selesai"
+                    android:src="@drawable/ic_check" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvNode2Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Kosakata"
+                android:textColor="@color/Black_Solid"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/node2"
+                app:layout_constraintStart_toStartOf="@+id/node2"
+                app:layout_constraintTop_toBottomOf="@+id/node2" />
+
+            <!-- Konektor Node 2 ke Node 3 (Miring ke Kanan) -->
+            <View
+                android:id="@+id/conn2_3"
+                android:layout_width="4dp"
+                android:layout_height="44dp"
+                android:background="@color/Gray_Light"
+                android:rotation="-35"
+                app:layout_constraintEnd_toEndOf="@+id/node3"
+                app:layout_constraintStart_toStartOf="@+id/node2"
+                app:layout_constraintTop_toBottomOf="@+id/tvNode2Title" />
+
+            <!-- START BADGE di atas Node 3 Aktif -->
+            <TextView
+                android:id="@+id/badgeStart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:background="@drawable/bg_start_badge"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="START!"
+                android:textColor="@color/Yellow"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/node3"
+                app:layout_constraintEnd_toEndOf="@+id/node3"
+                app:layout_constraintStart_toStartOf="@+id/node3" />
+
+            <!-- NODE 3 (Aktif): Perkenalan (Geser ke Kanan) -->
+            <FrameLayout
+                android:id="@+id/node3"
+                android:layout_width="76dp"
+                android:layout_height="76dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_node_active"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.65"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/conn2_3">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="4dp"
+                    android:contentDescription="Mulai"
+                    android:src="@drawable/ic_star"
+                    app:tint="@color/Black_Solid" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvNode3Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Perkenalan"
+                android:textColor="@color/Black_Solid"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/node3"
+                app:layout_constraintStart_toStartOf="@+id/node3"
+                app:layout_constraintTop_toBottomOf="@+id/node3" />
+
+            <!-- Maskot Bangboo Berdiri di Samping Node Aktif -->
+            <ImageView
+                android:id="@+id/ivFloatingMascot"
+                android:layout_width="86dp"
+                android:layout_height="86dp"
+                android:layout_marginStart="16dp"
+                android:contentDescription="Maskot Bangboo Cheering"
+                android:src="@drawable/logo_light"
+                app:layout_constraintBottom_toBottomOf="@+id/node3"
+                app:layout_constraintStart_toEndOf="@+id/node3"
+                app:layout_constraintTop_toTopOf="@+id/node3" />
+
+            <!-- Konektor Node 3 ke Node 4 (Miring ke Tengah) -->
+            <View
+                android:id="@+id/conn3_4"
+                android:layout_width="4dp"
+                android:layout_height="44dp"
+                android:background="@color/Gray_Light"
+                android:rotation="25"
+                app:layout_constraintEnd_toEndOf="@+id/node3"
+                app:layout_constraintStart_toStartOf="@+id/node4"
+                app:layout_constraintTop_toBottomOf="@+id/tvNode3Title" />
+
+            <!-- NODE 4 (Terkunci): Sapaan (Geser ke Tengah/Kiri) -->
+            <FrameLayout
+                android:id="@+id/node4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_node_locked"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/conn3_4">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:contentDescription="Terkunci"
+                    android:src="@drawable/ic_lock" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvNode4Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Sapaan"
+                android:textColor="@color/Gray"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/node4"
+                app:layout_constraintStart_toStartOf="@+id/node4"
+                app:layout_constraintTop_toBottomOf="@+id/node4" />
+
+            <!-- Konektor Node 4 ke Node 5 -->
+            <View
+                android:id="@+id/conn4_5"
+                android:layout_width="4dp"
+                android:layout_height="44dp"
+                android:background="@color/Gray_Light"
+                android:rotation="-30"
+                app:layout_constraintEnd_toEndOf="@+id/node5"
+                app:layout_constraintStart_toStartOf="@+id/node4"
+                app:layout_constraintTop_toBottomOf="@+id/tvNode4Title" />
+
+            <!-- NODE 5 (Terkunci): Angka &amp; Waktu -->
+            <FrameLayout
+                android:id="@+id/node5"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/bg_node_locked"
+                android:clickable="true"
+                android:focusable="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.68"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/conn4_5">
+
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="3dp"
+                    android:contentDescription="Terkunci"
+                    android:src="@drawable/ic_lock" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvNode5Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/spacegrotesk"
+                android:text="Angka &amp; Waktu"
+                android:textColor="@color/Gray"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="@+id/node5"
+                app:layout_constraintStart_toStartOf="@+id/node5"
+                app:layout_constraintTop_toBottomOf="@+id/node5" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <!-- GRID LAYOUT 2 KOLOM (MODUL) -->
-
-    <TextView
-        android:id="@+id/tvModul"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/spacegrotesk"
-        android:text="Rekomendasi Modul"
-        android:textColor="@color/Black_Solid"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvKategori" />
-
-    <GridLayout
-        android:id="@+id/gridModul"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        android:columnCount="2"
-        android:useDefaultMargins="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvModul"
-        app:layout_constraintVertical_bias="0.0">
-
-        <!-- MODUL 1: Python -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvModulPython"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
-            android:layout_margin="6dp"
-            app:cardBackgroundColor="@color/Surface"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center_horizontal"
-                    app:srcCompat="@drawable/logo_light" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/plus_jakarta_sans_regular"
-                    android:text="Programming"
-                    android:textColor="@color/Gray"
-                    android:textSize="11sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/spacegrotesk"
-                    android:maxLines="2"
-                    android:text="Pengenalan Python"
-                    android:textColor="@color/Black_Solid"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btnCoursePython"
-                    android:layout_width="match_parent"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/Yellow"
-                    android:fontFamily="@font/plus_jakarta_sans_regular"
-                    android:text="Ambil"
-                    android:textColor="@color/Black_Solid"
-                    android:textSize="11sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="10dp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cvModulKotlin"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_gravity="fill_horizontal"
-            android:layout_margin="6dp"
-            app:cardBackgroundColor="@color/Surface"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="2dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center_horizontal"
-                    app:srcCompat="@drawable/logo_light" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/plus_jakarta_sans_regular"
-                    android:text="Programming"
-                    android:textColor="@color/Gray"
-                    android:textSize="11sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:ellipsize="end"
-                    android:fontFamily="@font/spacegrotesk"
-                    android:maxLines="2"
-                    android:text="Dasar Kotlin"
-                    android:textColor="@color/Black_Solid"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <Button
-                    android:id="@+id/btnCourseKotlin"
-                    android:layout_width="match_parent"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="10dp"
-                    android:backgroundTint="@color/Yellow"
-                    android:fontFamily="@font/plus_jakarta_sans_regular"
-                    android:text="Ambil"
-                    android:textColor="@color/Black_Solid"
-                    android:textSize="11sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="10dp" />
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
-    </GridLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
