@@ -55,7 +55,7 @@ class LoginActivity : AppCompatActivity() {
                 // Modul 6 Tahap 1.2: AlertDialog saat login gagal
                 AlertDialog.Builder(this)
                     .setTitle("Login Gagal")
-                    .setMessage("Username dan password harus sama untuk login praktikum (contoh: arip / arip). Silakan coba lagi!")
+                    .setMessage("Username dan password harus sama untuk login praktikum (contoh: anip / anip). Silakan coba lagi!")
                     .setPositiveButton("OK") { dialog, _ ->
                         dialog.dismiss()
                     }
