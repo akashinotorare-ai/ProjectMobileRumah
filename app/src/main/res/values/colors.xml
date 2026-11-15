@@ -4,6 +4,7 @@
     <color name="White">#FFFFFF</color>
     <color name="Surface">#F6F8FA</color>
     <color name="Yellow">#FFE600</color>
+    <color name="Yellow_Primary">#FFE600</color>
     <color name="Yellow_Hover">#E5CF00</color>
     <color name="Yellow_Dark">#CCA800</color>
     <color name="Black_Solid">#0F1115</color>
