@@ -35,6 +35,8 @@ android {
 }
 
 dependencies {
+    // Modul 10 Tahap 0.2: RecyclerView
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
     // Modul 7 Tahap 4.1: Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     // Modul 9 Tahap 0.2: DotsIndicator
