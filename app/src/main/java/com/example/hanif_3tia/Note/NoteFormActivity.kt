@@ -1,6 +1,7 @@
 package com.example.hanif_3tia.Note
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -40,10 +41,21 @@ class NoteFormActivity : AppCompatActivity() {
         // Modul 12 Tahap 06: Inisialisasi Database
         db = AppDatabase.getInstance(this)
 
+        // Setup Dropdown Kategori Bahasa / Topik
+        val categories = arrayOf(
+            "🇯🇵 Bahasa Jepang",
+            "🇬🇧 Bahasa Inggris",
+            "⚡ Tips Belajar",
+            "📚 Tata Bahasa",
+            "📝 Kosakata Baru"
+        )
+        val categoryAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, categories)
+        binding.actvCategory.setAdapter(categoryAdapter)
+
         // Modul 12 Tahap 06: Aksi Simpan
         binding.btnSaveNote.setOnClickListener {
             val title = binding.etTitle.text.toString().trim()
-            val category = binding.etCategory.text.toString().trim()
+            val category = binding.actvCategory.text.toString().trim()
             val content = binding.etContent.text.toString().trim()
 
             // Validasi form (Modul 12 Tahap 06)
