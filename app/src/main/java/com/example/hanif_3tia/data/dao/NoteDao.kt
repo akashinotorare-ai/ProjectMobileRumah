@@ -10,11 +10,11 @@ import com.example.hanif_3tia.data.entity.NoteEntity
 @Dao
 interface NoteDao {
     @Query("SELECT * FROM study_notes ORDER BY createdAt DESC")
-    suspend fun getAll(): List<NoteEntity>
+    fun getAll(): List<NoteEntity>
 
     @Insert
-    suspend fun insert(note: NoteEntity)
+    fun insert(note: NoteEntity)
 
     @Delete
-    suspend fun delete(note: NoteEntity)
+    fun delete(note: NoteEntity)
 }

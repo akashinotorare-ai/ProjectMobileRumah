@@ -10,7 +10,9 @@ import androidx.lifecycle.lifecycleScope
 import com.example.hanif_3tia.data.AppDatabase
 import com.example.hanif_3tia.data.entity.NoteEntity
 import com.example.hanif_3tia.databinding.ActivityNoteFormBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // Modul 12 Tahap 06: Form input dan penyimpanan catatan ke Room Database
 class NoteFormActivity : AppCompatActivity() {
@@ -55,14 +57,16 @@ class NoteFormActivity : AppCompatActivity() {
             // Modul 12 Tahap 06: Menyimpan ke SQLite Room via Coroutine
             lifecycleScope.launch {
                 try {
-                    db.noteDao().insert(
-                        NoteEntity(
-                            title = title,
-                            content = content,
-                            category = category,
-                            createdAt = System.currentTimeMillis()
+                    withContext(Dispatchers.IO) {
+                        db.noteDao().insert(
+                            NoteEntity(
+                                title = title,
+                                content = content,
+                                category = category,
+                                createdAt = System.currentTimeMillis()
+                            )
                         )
-                    )
+                    }
                     Toast.makeText(this@NoteFormActivity, "Catatan berhasil disimpan ke Room!", Toast.LENGTH_SHORT).show()
                     finish()
                 } catch (e: Exception) {

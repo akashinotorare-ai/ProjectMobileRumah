@@ -13,7 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hanif_3tia.data.AppDatabase
 import com.example.hanif_3tia.data.entity.NoteEntity
 import com.example.hanif_3tia.databinding.ActivityNoteBinding
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 // Modul 12: Halaman daftar Catatan Belajar Room Database
 class NoteActivity : AppCompatActivity() {
@@ -68,7 +70,9 @@ class NoteActivity : AppCompatActivity() {
     private fun fetchNotes() {
         lifecycleScope.launch {
             try {
-                val result = db.noteDao().getAll()
+                val result = withContext(Dispatchers.IO) {
+                    db.noteDao().getAll()
+                }
                 notes.clear()
                 notes.addAll(result)
                 adapter.notifyDataSetChanged()
@@ -91,7 +95,9 @@ class NoteActivity : AppCompatActivity() {
     private fun deleteNote(note: NoteEntity) {
         lifecycleScope.launch {
             try {
-                db.noteDao().delete(note)
+                withContext(Dispatchers.IO) {
+                    db.noteDao().delete(note)
+                }
                 Toast.makeText(this@NoteActivity, "Catatan berhasil dihapus", Toast.LENGTH_SHORT).show()
                 fetchNotes()
             } catch (e: Exception) {
