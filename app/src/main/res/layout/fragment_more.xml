@@ -110,6 +110,39 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <!-- Modul 12: Buka Catatan Belajar (Room Database) -->
+            <RelativeLayout
+                android:id="@+id/btnOpenNotes"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_rounded_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingHorizontal="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:text="📝  Catatan Belajar Bangbo (Room Database)"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="Buka"
+                    android:rotation="180"
+                    android:src="@drawable/ic_arrow_back"
+                    app:tint="@color/Gray" />
+            </RelativeLayout>
+
             <!-- Modul 5 Tahap 5: Buka Web PCR / Panduan lewat WebView -->
             <RelativeLayout
                 android:id="@+id/btnOpenWebView"

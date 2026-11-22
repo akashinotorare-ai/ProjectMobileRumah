@@ -9,13 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.hanif_3tia.databinding.FragmentDictionaryBinding
 
-// Modul 10: Tab 1 Kamus menggunakan RecyclerView dengan LinearLayoutManager (daftar vertikal)
 class DictionaryFragment : Fragment() {
 
     private var _binding: FragmentDictionaryBinding? = null
     private val binding get() = _binding!!
 
-    // Data entri Kamus Bahasa Inggris & Jepang tematik Bangbo
     private val dictionaryList = listOf(
         DictionaryModel(
             word = "Arigatou",
@@ -115,7 +113,6 @@ class DictionaryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Modul 10 Tahap 4.6: Inisialisasi Adapter dengan lambda onItemClick
         val dictionaryAdapter = DictionaryAdapter(dictionaryList) { item ->
             Toast.makeText(
                 requireContext(),
@@ -124,14 +121,12 @@ class DictionaryFragment : Fragment() {
             ).show()
         }
 
-        // Modul 10 Tahap 4.6: Pasang LinearLayoutManager & Adapter
         binding.rvDictionary.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = dictionaryAdapter
         }
     }
 
-    // Modul 10 Tahap 4.1: _binding diisi null di onDestroyView() untuk mencegah kebocoran memori
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

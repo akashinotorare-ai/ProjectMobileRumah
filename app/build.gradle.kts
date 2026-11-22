@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    id("com.google.devtools.ksp")
 }
 
 android {
@@ -35,6 +36,12 @@ android {
 }
 
 dependencies {
+    // Modul 12 Tahap 03: Room Database & KSP
+    val roomVersion = "2.6.1"
+    implementation("androidx.room:room-runtime:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    ksp("androidx.room:room-compiler:$roomVersion")
+
     // Modul 10 Tahap 0.2: RecyclerView
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     // Modul 7 Tahap 4.1: Glide

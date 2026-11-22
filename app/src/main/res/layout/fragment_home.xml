@@ -190,6 +190,73 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <!-- Card Catatan Belajar Bangbo (Room Database) -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cardNotesBanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_rounded_card"
+                android:clickable="true"
+                android:focusable="true"
+                android:padding="16dp"
+                app:layout_constraintTop_toBottomOf="@+id/cardTargetHarian">
+
+                <ImageView
+                    android:id="@+id/ivNotesBannerIcon"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_chip_status"
+                    android:contentDescription="Catatan Belajar"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_notes"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/Black_Solid" />
+
+                <TextView
+                    android:id="@+id/tvNotesBannerTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/spacegrotesk"
+                    android:text="Catatan Belajar Bangbo"
+                    android:textColor="@color/Black_Solid"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/ivNotesBannerArrow"
+                    app:layout_constraintStart_toEndOf="@+id/ivNotesBannerIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvNotesBannerSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/plus_jakarta_sans_regular"
+                    android:text="Simpan rangkuman materi lokal (Room Database)"
+                    android:textColor="@color/Gray"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toStartOf="@+id/ivNotesBannerArrow"
+                    app:layout_constraintStart_toEndOf="@+id/ivNotesBannerIcon"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNotesBannerTitle" />
+
+                <ImageView
+                    android:id="@+id/ivNotesBannerArrow"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:contentDescription="Buka"
+                    android:rotation="180"
+                    android:src="@drawable/ic_arrow_back"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/Gray" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <!-- ================= JALUR BELAJAR BERKELOK (S-CURVE) ================= -->
 
             <!-- NODE 1 (Selesai): Tata Bahasa -->
@@ -197,14 +264,14 @@
                 android:id="@+id/node1"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="32dp"
                 android:background="@drawable/bg_node_completed"
                 android:clickable="true"
                 android:focusable="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardTargetHarian">
+                app:layout_constraintTop_toBottomOf="@+id/cardNotesBanner">
 
                 <ImageView
                     android:layout_width="32dp"

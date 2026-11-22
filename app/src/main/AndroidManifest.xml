@@ -78,6 +78,17 @@
             android:name=".Module.Tutorial.TutorialModuleActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+            
+        <!-- Modul 12: Fitur Catatan Belajar Room Database -->
+        <activity
+            android:name=".Note.NoteActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+            
+        <activity
+            android:name=".Note.NoteFormActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
     </application>
 
 </manifest>

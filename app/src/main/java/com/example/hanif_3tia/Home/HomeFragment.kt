@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.hanif_3tia.DetailActivity
+import com.example.hanif_3tia.Note.NoteActivity
 import com.example.hanif_3tia.Quiz.QuizSessionActivity
 import com.example.hanif_3tia.databinding.FragmentHomeBinding
 
@@ -43,6 +44,11 @@ class HomeFragment : Fragment() {
         // Tampilkan info bahasa di bab dan XP
         binding.chipBab.text = "BAB 1 • $selectedLang"
         binding.tvXp.text = "%,d XP".format(userXp)
+
+        // Modul 12: Buka Catatan Belajar Bangbo (Room Database)
+        binding.cardNotesBanner.setOnClickListener {
+            startActivity(Intent(requireContext(), NoteActivity::class.java))
+        }
 
         // Klik Node 1 (Tata Bahasa - Selesai)
         binding.node1.setOnClickListener {

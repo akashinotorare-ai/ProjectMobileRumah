@@ -9,13 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.hanif_3tia.databinding.FragmentVocabularyBinding
 
-// Modul 10: Tab 2 Kosakata menggunakan RecyclerView dengan GridLayoutManager (petak 2 kolom)
 class VocabularyFragment : Fragment() {
 
     private var _binding: FragmentVocabularyBinding? = null
     private val binding get() = _binding!!
 
-    // Modul 10 Tahap 4.6 & 5.2: Data kategori kosakata tematik lengkap dengan URL gambar
     private val vocabularyList = listOf(
         VocabularyModel(
             title = "Food & Drinks",
@@ -91,7 +89,6 @@ class VocabularyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Modul 10 Tahap 4.6: Inisialisasi Adapter dengan lambda onItemClick
         val vocabularyAdapter = VocabularyAdapter(vocabularyList) { item ->
             Toast.makeText(
                 requireContext(),
@@ -100,14 +97,12 @@ class VocabularyFragment : Fragment() {
             ).show()
         }
 
-        // Modul 10 Tahap 4.6: Pasang GridLayoutManager (2 kolom) & Adapter
         binding.rvVocabulary.apply {
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = vocabularyAdapter
         }
     }
 
-    // Modul 10 Tahap 4.1: Mencegah kebocoran memori saat Fragment dihancurkan
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

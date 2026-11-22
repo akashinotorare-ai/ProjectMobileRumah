@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.hanif_3tia.LoginActivity
+import com.example.hanif_3tia.Note.NoteActivity
 import com.example.hanif_3tia.TutorialScreenActivity
 import com.example.hanif_3tia.WebViewActivity
 import com.example.hanif_3tia.databinding.FragmentMoreBinding
@@ -37,6 +38,11 @@ class MoreFragment : Fragment() {
         binding.tvWelcomeUser.text = "Halo, $username!"
         binding.tvUserEmail.text = email
         binding.tvActiveLang.text = "Fokus: $activeLang"
+
+        // Modul 12: Buka Catatan Belajar Bangbo (Room Database)
+        binding.btnOpenNotes.setOnClickListener {
+            startActivity(Intent(requireContext(), NoteActivity::class.java))
+        }
 
         // Modul 5 Tahap 5: Buka WebViewActivity saat tombol diklik
         binding.btnOpenWebView.setOnClickListener {

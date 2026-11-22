@@ -7,7 +7,6 @@ import com.bumptech.glide.Glide
 import com.example.hanif_3tia.R
 import com.example.hanif_3tia.databinding.ItemVocabularyBinding
 
-// Modul 10 Tahap 4.4: RecyclerView Adapter dengan Glide dan lambda onItemClick
 class VocabularyAdapter(
     private val vocabularyList: List<VocabularyModel>,
     private val onItemClick: (VocabularyModel) -> Unit
@@ -30,7 +29,6 @@ class VocabularyAdapter(
             tvVocabSubtitle.text = item.subtitle
             tvVocabCount.text = item.count
 
-            // Modul 10 Tahap 4.4: Memuat gambar dari URL/resource dengan Glide
             Glide.with(holder.itemView.context)
                 .load(item.imageUrl)
                 .placeholder(R.drawable.logo_light)

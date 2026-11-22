@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hanif_3tia.databinding.ItemDictionaryBinding
 
-// Modul 10 Tahap 4.4: RecyclerView Adapter untuk Kamus dengan lambda onItemClick
 class DictionaryAdapter(
     private val dictionaryList: List<DictionaryModel>,
     private val onItemClick: (DictionaryModel) -> Unit
