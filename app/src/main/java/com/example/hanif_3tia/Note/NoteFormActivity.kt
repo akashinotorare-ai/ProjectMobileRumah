@@ -15,7 +15,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-// Modul 12 Tahap 06: Form input dan penyimpanan catatan ke Room Database
 class NoteFormActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNoteFormBinding
@@ -38,10 +37,8 @@ class NoteFormActivity : AppCompatActivity() {
             finish()
         }
 
-        // Modul 12 Tahap 06: Inisialisasi Database
         db = AppDatabase.getInstance(this)
 
-        // Setup Dropdown Kategori Bahasa / Topik
         val categories = arrayOf(
             "🇯🇵 Bahasa Jepang",
             "🇬🇧 Bahasa Inggris",
@@ -52,13 +49,11 @@ class NoteFormActivity : AppCompatActivity() {
         val categoryAdapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, categories)
         binding.actvCategory.setAdapter(categoryAdapter)
 
-        // Modul 12 Tahap 06: Aksi Simpan
         binding.btnSaveNote.setOnClickListener {
             val title = binding.etTitle.text.toString().trim()
             val category = binding.actvCategory.text.toString().trim()
             val content = binding.etContent.text.toString().trim()
 
-            // Validasi form (Modul 12 Tahap 06)
             if (title.isBlank() || content.isBlank() || category.isBlank()) {
                 Toast.makeText(this, "Isi semua kolom form!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -66,7 +61,6 @@ class NoteFormActivity : AppCompatActivity() {
 
             binding.btnSaveNote.isEnabled = false
 
-            // Modul 12 Tahap 06: Menyimpan ke SQLite Room via Coroutine
             lifecycleScope.launch {
                 try {
                     withContext(Dispatchers.IO) {
