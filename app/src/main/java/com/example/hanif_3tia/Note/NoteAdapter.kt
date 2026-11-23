@@ -10,7 +10,6 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-// Modul 12 Tahap 07: Adapter RecyclerView untuk daftar catatan Room
 class NoteAdapter(
     private val notes: List<NoteEntity>,
     private val onDelete: (NoteEntity) -> Unit
@@ -36,7 +35,6 @@ class NoteAdapter(
             val sdf = SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault())
             tvDate.text = "Dibuat: ${sdf.format(Date(note.createdAt))}"
 
-            // Modul 12 Tahap 07: Dialog konfirmasi MaterialAlertDialogBuilder sebelum menghapus
             btnDelete.setOnClickListener {
                 MaterialAlertDialogBuilder(holder.itemView.context)
                     .setTitle("Hapus Catatan")

@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 import com.example.hanif_3tia.data.dao.NoteDao
 import com.example.hanif_3tia.data.entity.NoteEntity
 
-// Modul 12 Tahap 06: RoomDatabase Singleton
 @Database(
     entities = [NoteEntity::class],
     version = 1,

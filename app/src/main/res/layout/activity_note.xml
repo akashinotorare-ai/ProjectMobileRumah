@@ -19,7 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Empty State jika belum ada catatan -->
     <LinearLayout
         android:id="@+id/layoutEmpty"
         android:layout_width="wrap_content"

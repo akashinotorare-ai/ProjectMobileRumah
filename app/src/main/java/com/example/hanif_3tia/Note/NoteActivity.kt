@@ -38,24 +38,21 @@ class NoteActivity : AppCompatActivity() {
             insets
         }
 
-        // Toolbar kembali
+
         binding.toolbar.setNavigationOnClickListener {
             finish()
         }
 
-        // Modul 12 Tahap 06: Inisialisasi Database Room Singleton
         db = AppDatabase.getInstance(this)
 
-        // Modul 12 Tahap 07: Inisialisasi Adapter dengan callback hapus
         adapter = NoteAdapter(notes) { note ->
             deleteNote(note)
         }
 
-        // Setup RecyclerView
         binding.rvNotes.layoutManager = LinearLayoutManager(this)
+
         binding.rvNotes.adapter = adapter
 
-        // Modul 12 Tahap 05: FAB membuka NoteFormActivity
         binding.fabAddNote.setOnClickListener {
             startActivity(Intent(this, NoteFormActivity::class.java))
         }
@@ -66,7 +63,6 @@ class NoteActivity : AppCompatActivity() {
         fetchNotes()
     }
 
-    // Modul 12 Tahap 07: Mengambil data terbaru dari Room via Coroutine
     private fun fetchNotes() {
         lifecycleScope.launch {
             try {
@@ -91,7 +87,6 @@ class NoteActivity : AppCompatActivity() {
         }
     }
 
-    // Modul 12 Tahap 07: Menghapus catatan dari Room via Coroutine
     private fun deleteNote(note: NoteEntity) {
         lifecycleScope.launch {
             try {

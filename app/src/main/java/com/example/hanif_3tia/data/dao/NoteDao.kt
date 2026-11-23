@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.Query
 import com.example.hanif_3tia.data.entity.NoteEntity
 
-// Modul 12 Tahap 05: Interface DAO untuk operasi CRUD SQLite via Room
 @Dao
 interface NoteDao {
     @Query("SELECT * FROM study_notes ORDER BY createdAt DESC")
